@@ -1,4 +1,5 @@
 import asyncio
+import os
 from pathlib import Path
 
 import click
@@ -6,11 +7,15 @@ import click
 from rag.config import settings
 from rag.ingestion import ingest_documents
 
+# Get the absolute path to the project root directory
+PROJECT_ROOT = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DEFAULT_DOCUMENTS_DIR = PROJECT_ROOT / "data" / "rag"
+
 @click.command()
 @click.option(
     "--documents-dir",
     type=click.Path(exists=True, path_type=Path),
-    default=Path("../data/rag"),
+    default=DEFAULT_DOCUMENTS_DIR,
     help="Directory containing JSON documents to process",
 )
 def main(
