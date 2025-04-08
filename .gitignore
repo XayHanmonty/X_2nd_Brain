@@ -50,3 +50,18 @@ htmlcov/
 # Logs
 *.log
 logs/
+
+# Gradio
+flagged/
+gradio_cached_examples/
+
+# LangChain
+.langchain/
+
+# MongoDB
+*.mongodb
+mongodb_data/
+
+# Cache directories
+.cache/
+.huggingface/
