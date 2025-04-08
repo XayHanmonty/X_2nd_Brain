@@ -47,11 +47,13 @@ Process documents using the CLI tool:
 
 ```bash
 # Using the installed command
-run-ingestion --documents-dir path/to/your/documents
+run-ingestion
 
 # Or using the Python script directly
-python tools/run_data_ingestion_pipeline.py --documents-dir path/to/your/documents
+python tools/run_data_ingestion_pipeline.py
 ```
+
+By default, the pipeline will look for documents in the `data/rag` directory relative to the project root. You can specify a different directory:
 
 ### Document Format
 
@@ -82,7 +84,19 @@ Key configuration settings can be found in `src/rag/config.py`:
 
 - Python 3.9+
 - MongoDB Atlas account for vector search capabilities
-- Dependencies as listed in setup.py
+- Dependencies as listed in setup.py:
+  - sentence-transformers >= 2.7.0
+  - transformers == 4.51.1
+  - tokenizers < 0.22, >= 0.21
+  - Other dependencies as specified in setup.py
+
+## Dependency Notes
+
+The project requires specific versions of certain packages to ensure compatibility:
+- `transformers` version 4.51.1 is required for compatibility with the latest `sentence-transformers`
+- `tokenizers` must be between versions 0.21 and 0.22
+
+These dependencies are automatically installed when you run `pip install -e .`
 
 ## License
 
