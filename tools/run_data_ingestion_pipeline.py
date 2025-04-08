@@ -10,7 +10,7 @@ from rag.ingestion import ingest_documents
 @click.option(
     "--documents-dir",
     type=click.Path(exists=True, path_type=Path),
-    default=Path("data/rag"),
+    default=Path("../data/rag"),
     help="Directory containing JSON documents to process",
 )
 def main(
