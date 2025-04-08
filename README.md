@@ -1,4 +1,4 @@
-# Xay's Second Brain RAG System
+# AI Second Brain RAG System
 
 My personal knowledge management system powered by MongoDB and RAG (Retrieval Augmented Generation).
 
