@@ -13,6 +13,7 @@ This system allows you to ingest, process, and retrieve knowledge from your pers
 - **Vector Embeddings**: Generate document embeddings using Hugging Face models
 - **MongoDB Integration**: Store and index documents and embeddings for efficient retrieval
 - **RAG Generation**: Answer questions using retrieved documents as context
+- **Interactive Agent**: Web interface for interacting with the knowledge base
 - **CLI Interface**: Easy-to-use command line tools for data ingestion and generation
 
 ## System Requirements
@@ -95,6 +96,19 @@ python tools/run_data_generation_pipeline.py
 
 This will run the default set of questions. You can modify the questions in the script or create your own interface to interact with the RAG system.
 
+### Using the Interactive Agent
+
+The system includes an interactive web interface powered by Gradio that allows you to query your knowledge base:
+
+```bash
+# Launch the interactive agent
+python tools/agent.py
+```
+
+This will start a local web server with a user-friendly interface where you can ask questions and receive answers based on your knowledge base.
+
+![alt text](image.png)
+
 ### Document Format
 
 Input documents should be JSON files with the following structure:
@@ -119,28 +133,6 @@ Key configuration settings can be found in `src/rag/config.py`:
 - **MongoDB Connection**: URI, database name, and collection settings
 - **Quality Assessment**: Thresholds for document filtering
 - **Device Settings**: CPU/GPU configuration for model inference
-
-## Project Structure
-
-```
-xay_second_brain/
-├── data/
-│   └── rag/                  # Default directory for JSON documents
-├── src/
-│   └── rag/
-│       ├── config.py         # Configuration settings
-│       ├── embedding.py      # Text embedding functionality
-│       ├── generation.py     # RAG generation chain
-│       ├── ingestion.py      # Document ingestion pipeline
-│       ├── mongodb.py        # MongoDB integration
-│       ├── retriever.py      # Document retrieval functionality
-│       └── splitter.py       # Text splitting utilities
-├── tools/
-│   ├── run_data_ingestion_pipeline.py    # CLI for document ingestion
-│   └── run_data_generation_pipeline.py   # CLI for question answering
-├── setup.py                  # Package configuration
-└── .env                      # Environment variables (create this file)
-```
 
 ## Dependency Notes
 
@@ -181,3 +173,4 @@ These dependencies are automatically installed when you run `pip install -e .`
 - Hugging Face for embedding models
 - MongoDB Atlas for vector database capabilities
 - OpenAI for language model capabilities
+- [SmoLAgents](https://github.com/smol-ai/smolAgents) for the interactive agent interface

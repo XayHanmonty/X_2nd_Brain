@@ -26,6 +26,7 @@ setup(
     entry_points={
         "console_scripts": [
             "run-ingestion=run_ingestion_wrapper:main",
+            "run-agent=tools.agent:main",
         ],
     },
 )
